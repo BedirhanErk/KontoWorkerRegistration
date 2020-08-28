@@ -1,0 +1,63 @@
+﻿@using KontoWorkerRegistration.Models.Entity
+@model List<Record>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-bottom:15px">Index</h2>
+
+
+@using (Html.BeginForm("Index", "Record", FormMethod.Get))
+{
+<p>
+    District : @Html.TextBox("p")
+    <input type="submit" value="Search" />
+</p>
+}
+
+
+
+<div style="margin-bottom:15px">
+    <a href="/Record/Add/" class="btn btn-primary ">New Worker</a>
+</div>
+
+<table id="tablo1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="10"></th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>District</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Record in Model)
+        {
+
+            <tr>
+                <td><a href="/Record/Delete/@Record.Id" class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete"><strong>X</strong></a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.Name</a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.Surname</a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.PhoneNumber</a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.Email</a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.City</a></td>
+                <td><a href="/Record/Update/@Record.Id" class="">@Record.District</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
+<script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+<script>
+    $('#tablo1').dataTable();
+</script>

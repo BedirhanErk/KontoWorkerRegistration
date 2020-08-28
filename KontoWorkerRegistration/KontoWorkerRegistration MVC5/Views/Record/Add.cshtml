@@ -1,0 +1,43 @@
+﻿@model KontoWorkerRegistration.Models.Entity.Record
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Name</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>Surname</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Surname, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>Phone Number</label>
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>City</label>
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>District</label>
+        @Html.TextBoxFor(x => x.District, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.District, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add Worker</button>
+    </div>
+</form>
